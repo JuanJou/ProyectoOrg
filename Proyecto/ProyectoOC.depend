@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1475448495 source:c:\users\agustin\desktop\organización de computadoras\proyectooc\proyectooc\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1475452254 source:c:\users\agustin\desktop\organización de computadoras\proyectooc\proyectooc\lista.c
+	<stdio.h>
+	<stdlib.h>
+
+1475456734 source:c:\users\agustin\desktop\proyectooc\proyectooc\main.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"pila.h"
+
+1475456822 c:\users\agustin\desktop\proyectooc\proyectooc\lista.h
+
+1475456041 c:\users\agustin\desktop\proyectooc\proyectooc\pila.h
+
