@@ -15,17 +15,20 @@ char* desapilar(pila_t* pila){
         char* elem=(*pila)->elemento;
         if((*pila)->proximo_elemento!=NULL)
             (*pila)=(*pila)->proximo_elemento;
-        return *elem;
+        return elem;
     }
 }
 
 int apilar(pila_t* pila, char* str){
    try{ if (pila_vacia(pila)==0){
         pila_t* pilaNueva=(*pila_t) malloc(pila_t);
-        pilaNueva->elemento= (pila)->elemento;
+        pilaNueva->elemento= (*pila)->elemento;
         pilaNueva->proximo_elemento= (*pila)->proximo_elemento;
         (*pila)->elemento=str;
         (*pila)->proximo_elemento= pilaNueva;
+        }
+        else{
+            exit(1);
         }
    } except(EXIT_ON_STATUS){
 

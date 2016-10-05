@@ -6,6 +6,7 @@ typedef struct pila{
     struct pila* proximo_elemento;
 } *pila_t;
 
+
 pila_t pila_crear();
 char* tope(pila_t pila);
 char* desapilar(pila_t* pila);
