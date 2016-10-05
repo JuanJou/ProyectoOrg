@@ -8,7 +8,19 @@ lista_t lista_crear(){
 }
 
 int lista_insertar(lista_t lista, unsigned int pos, int elem){
-
+    celda_t* c=lista->primera_celda;
+    //if (pos==lista->cantidad_elementos){
+    //    int j;
+     //   for
+    //}else{
+    int i=0;
+    for (i=0;i<(int)pos/4;i++){
+        if (c->proxima_celda==null)
+            exit(EXIT_ON_STATUS);
+        else
+            if ()
+            c=c->proxima_celda;
+    }
 }
 
 int lista_eliminar(lista_t lista, unsigned int pos){
