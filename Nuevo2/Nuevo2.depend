@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1475722359 source:c:\users\personal\desktop\universidad\organizacion\nuevo2\lista.c
+	"lista.h"
+	<stdlib.h>
+
+1475708901 c:\users\personal\desktop\universidad\organizacion\nuevo2\lista.h
+
+1475722135 source:c:\users\personal\desktop\universidad\organizacion\nuevo2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"pila.h"
+
+1475719998 source:c:\users\personal\desktop\universidad\organizacion\nuevo2\pila.c
+	"pila.h"
+	<stdlib.h>
+	<string.h>
+
+1475708963 c:\users\personal\desktop\universidad\organizacion\nuevo2\pila.h
+
