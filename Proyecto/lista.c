@@ -1,9 +1,9 @@
 #include "lista.h"
 
 lista_t lista_crear(){
-    lista_t lista=(lista_t*) malloc(sizeof(lista));
+    lista_t lista=(lista_t) malloc(sizeof(lista));
     lista->cantidad_elementos=0;
-    lista->primera_celda=NULL;
+    lista->primera_celda=0;
     return lista;
 }
 
@@ -17,7 +17,7 @@ int lista_insertar(lista_t lista, unsigned int pos, int elem){
         lista_adjuntar(lista,elem);
     else
         c->elementos[pos%4]=elem;
-    
+
     lista->cantidad_elementos++;
 }
 
@@ -29,7 +29,7 @@ int lista_eliminar(lista_t lista, unsigned int pos){
     }
     int correr=(int)pos%4;
 
-    for (correr;correr<cantidad_elementos;correr++){
+    for (correr;correr<lista->cantidad_elementos;correr++){
         if (correr%4==0){
             c=c->proxima_celda;
         }
@@ -47,7 +47,7 @@ int lista_obtener(lista_t lista, unsigned pos){
     for (i=0;i<(int)pos/4;i++){
         c=c->proxima_celda;
     }
-    return c->elem[pos%4];
+    return c->elementos[pos%4];
 }
 
 int lista_adjuntar(lista_t lista, int elem){
@@ -62,12 +62,12 @@ int lista_adjuntar(lista_t lista, int elem){
 
 int lista_destruir(lista_t* lista){
     free(lista);
-    lista=NULL;
+    lista=0;
 }
 
 int siguiente_elemento(int i,celda_t* c){
-    if (correr<3)
-        return c->elem[correr+1];
+    if (i<3)
+        return c->elementos[i+1];
     else
-        return c->proxima_celda->elem[0];
+        return c->proxima_celda->elementos[0];
 }

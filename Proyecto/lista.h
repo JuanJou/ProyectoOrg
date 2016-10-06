@@ -9,7 +9,9 @@ typedef struct lista_eficiente{
     unsigned int cantidad_elementos;
     celda_t* primera_celda;
 } *lista_t;
-struct lista_t lista_crear();
+
+
+lista_t lista_crear();
 int lista_insertar(lista_t lista, unsigned int pos, int elem);
 int lista_eliminar(lista_t lista, unsigned int pos);
 int lista_cantidad(lista_t lista);
