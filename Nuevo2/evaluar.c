@@ -13,39 +13,114 @@ int esOperador(char x){
 }
 
 
-
-int insertarEnPila(pila_t* pila,char* s){
+double suma(lista_t operandos){
+    double suma=0;
     int i=0;
-	while(*(s+i)!='\0'){
-		if (*(s+i)!=' '){
-			if ((*(s+i))==')')
-				apilar(pila,*(s+i));
+    for (;i<operandos->cantidad_elementos;i++)
+        suma+=lista_obtener(operandos,i);
+    return suma;
+}
+
+double mult(lista_t operandos){
+    double mult=0;
+    int i=0;
+    for (;i<operandos->cantidad_elementos;i++)
+        mult=mult*lista_obtener(operandos,i);
+    return mult;
+
+}
+
+double division(lista_t operandos){
+    if (operandos->cantidad_elementos>2)
+        exit(OPND_DEMAS);
+
+
+    return (lista_obtener(operandos,1)/lista_obtener(operandos,0));
+
+}
+
+double resta(lista_t operandos){
+    if (operandos->cantidad_elementos!=2)
+        exit(OPND_DEMAS);
+
+    return (lista_obtener(operandos,1)-lista_obtener(operandos,0));
+
+}
+
+
+int calcularPila(pila_t* pila){
+	int i;
+	lista_t lista=lista_crear();
+	for (i=0;esOperador(tope(*pila));i++){
+		lista_adjuntar(lista,atoi(desapilar(pila)));
+	}
+	char* op=desapilar(pila);
+	desapilar(pila);
+
+    if (lista->cantidad_elementos<2)
+        exit(OPND_INSUF);
+
+	int res=0;
+
+	if (op=="+")
+        res=suma(lista);
+    else
+        if (op=="-")
+            res=resta(lista);
+        else
+            if (op=="*")
+                res=mult(lista);
+            else
+                if (op=="/")
+                    res=division(lista);
+                else
+                    exit(OPRD_INV);
+
+
+	char* aux=(char*) malloc(sizeof(char)*10);
+    aux=itoa(res,aux,10);
+	apilar(pila,aux);
+
+}
+
+
+
+int insertarEnPila(pila_t* pila,char cad[],int l){
+    int i=0;
+    char* s=cad;
+	while(i<l){
+		if (*(s)!=' '){
+			if ((*(s))==')'){
+				char a=*s;
+				apilar(pila,&a);
+				}
 			else
 			{
 				//for (;*s==' ';s++)
 
-				if ((*(s+i)=='(')|| (esOperador(*(s+i))==1)){
-					apilar(pila,*(s+i));
+				if ((*(s)=='(') || (esOperador((*s))==1)){
+                    char ax=*s;
+					apilar(pila,&ax);
 					}
 				else{
 					char* aux;
 					aux=(char*) malloc(10*sizeof(char));
-					for (;*(s+i)!=' ';i++){
-                        aux+=i;
-						aux=(*(s+i));
+					char* x=aux;
+					for (;(*(s)!=' ') && (*(s)!='\0') && (*(s)!=')') ;s++,x++,i++){
+                        *x=*s;
                     }
 
 					apilar(pila,aux);
-					free(aux);
-					aux=NULL;
-				}
+					//free(aux);
+					//aux=NULL;
+				 }
 			}
 		}
-	i+=1;
+	i++;
   }
 }
 
-int calcularPila(pila_t* p,char* exp){
+/*int calcularPila(pila_t* p,char* exp){
     int i=0;
     while (*(exp+i)!='\0'){
         apilar(p,*(exp+i));
@@ -53,30 +128,9 @@ int calcularPila(pila_t* p,char* exp){
         }
 
 
-}
-
-
-/*int calcularPila(pila_t* pila){
-	int i;
-	lista_t lista=lista_crear();
-	for (i=0;esOperador(tope(*pila));i++){
-		lista_adjuntar(atof(pila_desapilar(pila));
-	}
-	char* op=pila_desapilar(pila);
-	pila_desapilar(pila);
-
-	double res=0;
-	switch(op){
-		case '+':
-			res=suma(lista);
-		case '*':
-			res=mult(lista);
-		case '-':
-			res=resta(lista);
-		case '/':
-			res=division(lista);
-	}
-	apilar(pila,res);
-
 }*/
+
+
+
+
 

@@ -50,3 +50,35 @@
 	"pila.h"
 	<string.h>
 
+1475903639 source:c:\users\personal\desktop\universidad\organizacion\proyectoorg\nuevo2\evaluar.c
+	"evaluar.h"
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"pila.h"
+	<string.h>
+
+1475897718 c:\users\personal\desktop\universidad\organizacion\proyectoorg\nuevo2\evaluar.h
+	"pila.h"
+	"lista.h"
+
+1475893568 c:\users\personal\desktop\universidad\organizacion\proyectoorg\nuevo2\pila.h
+
+1475893568 c:\users\personal\desktop\universidad\organizacion\proyectoorg\nuevo2\lista.h
+
+1475893568 source:c:\users\personal\desktop\universidad\organizacion\proyectoorg\nuevo2\lista.c
+	"lista.h"
+	<stdlib.h>
+
+1475901330 source:c:\users\personal\desktop\universidad\organizacion\proyectoorg\nuevo2\pila.c
+	"pila.h"
+	<stdlib.h>
+	<string.h>
+
+1475901952 source:c:\users\personal\desktop\universidad\organizacion\proyectoorg\nuevo2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"pila.h"
+	"evaluar.h"
+

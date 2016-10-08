@@ -11,8 +11,8 @@
 #include "pila.h"
 #include "lista.h"
 
-int insertarEnPila(pila_t* pila,char* s);
-int calcularPila(pila_t* pila,char* exp);
+int calcularPila(pila_t* pila);
+int insertarEnPila(pila_t* pila,char s[],int l);
 //float suma(lista_t l);
 //float mult(lista_t l);
 //float d(lista_t l);

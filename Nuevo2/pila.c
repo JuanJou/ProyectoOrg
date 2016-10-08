@@ -21,14 +21,13 @@ char* desapilar(pila_t* pila){
    if((*pila)!=0){
         char* elem=(*pila)->elemento;
             if(((*pila)->proximo_elemento)!=0){
-                pila_t aux=(*pila)->proximo_elemento;
-                free(*pila);
+                 pila_t aux=(*pila)->proximo_elemento;
                 (*pila)=aux;
             }
             else{
                 (*pila)=0;
             }
-        free(elem);
+       // free(elem);
         return elem;
     }
     else

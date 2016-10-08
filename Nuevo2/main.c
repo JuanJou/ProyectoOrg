@@ -10,12 +10,17 @@
 int main(int argc,char const *argv[])
 {
     //Probando Pila, ANDA
+    //if (argc>1)
+    //    exit(5);
+
+
+
 
    pila_t p=pila_crear();
 
-    /*apilar(&p," ");
-    apilar(&p," ");
-    apilar(&p," ");
+    /*apilar(&p,"carlos");
+    apilar(&p,"pepe");
+    apilar(&p,"hola");
 
     printf("%s\n",desapilar(&p));
     printf("%s\n",desapilar(&p));
@@ -48,11 +53,13 @@ int main(int argc,char const *argv[])
     //printf("%c",*(exp+1));
 
     //printf("hola");
+    int longitud=strlen(exp);
 
-  int x=insertarEnPila(&p,exp);
+    int x=insertarEnPila(&p,exp,longitud);
 
    while(pila_vacia(p)==0){
-        printf("%c\n",desapilar(&p));
+        char* d=desapilar(&p);
+        printf("%s\n",d);
    }
   // while (pila_vacia(p)!=0){
     // printf("%s\n",desapilar(&p));
