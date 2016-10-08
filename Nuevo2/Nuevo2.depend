@@ -82,3 +82,35 @@
 	"pila.h"
 	"evaluar.h"
 
+1475940701 source:c:\users\agustin\desktop\proyectoorg\nuevo2\lista.c
+	"lista.h"
+	<stdlib.h>
+
+1475940701 c:\users\agustin\desktop\proyectoorg\nuevo2\lista.h
+
+1475960774 source:c:\users\agustin\desktop\proyectoorg\nuevo2\evaluar.c
+	"evaluar.h"
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"pila.h"
+	<string.h>
+
+1475940701 c:\users\agustin\desktop\proyectoorg\nuevo2\evaluar.h
+	"pila.h"
+	"lista.h"
+
+1475940701 c:\users\agustin\desktop\proyectoorg\nuevo2\pila.h
+
+1475957178 source:c:\users\agustin\desktop\proyectoorg\nuevo2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"pila.h"
+	"evaluar.h"
+
+1475959785 source:c:\users\agustin\desktop\proyectoorg\nuevo2\pila.c
+	"pila.h"
+	<stdlib.h>
+	<string.h>
+

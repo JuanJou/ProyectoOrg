@@ -22,7 +22,7 @@ double suma(lista_t operandos){
 }
 
 double mult(lista_t operandos){
-    double mult=0;
+    double mult=1;
     int i=0;
     for (;i<operandos->cantidad_elementos;i++)
         mult=mult*lista_obtener(operandos,i);
@@ -31,8 +31,9 @@ double mult(lista_t operandos){
 }
 
 double division(lista_t operandos){
-    if (operandos->cantidad_elementos>2)
-        exit(OPND_DEMAS);
+    if (operandos->cantidad_elementos>2){
+        printf("DEMASIADOS OPERANDOS");
+        exit(OPND_DEMAS);}
 
 
     return (lista_obtener(operandos,1)/lista_obtener(operandos,0));
@@ -40,8 +41,11 @@ double division(lista_t operandos){
 }
 
 double resta(lista_t operandos){
-    if (operandos->cantidad_elementos!=2)
+    if (operandos->cantidad_elementos!=2){
+        printf("DEMASIADOS OPERANDOS");
         exit(OPND_DEMAS);
+        }
+
 
     return (lista_obtener(operandos,1)-lista_obtener(operandos,0));
 
@@ -51,14 +55,17 @@ double resta(lista_t operandos){
 int calcularPila(pila_t* pila){
 	int i;
 	lista_t lista=lista_crear();
-	for (i=0;esOperador(tope(*pila))==0;i++){
+	for (i=0;esOperador(tope(*pila))==0 && tope(*pila)!='(';i++){
 		lista_adjuntar(lista,atoi(desapilar(pila)));
 	}
 	char* op=desapilar(pila);
 	desapilar(pila);
 
-    if (lista->cantidad_elementos<2)
+    if (lista->cantidad_elementos<2){
+        printf("OPERANDOS INSUFICIENTES");
         exit(OPND_INSUF);
+        }
+
 
 	int res=0;
 
@@ -80,6 +87,7 @@ int calcularPila(pila_t* pila){
 	char* aux=(char*) malloc(sizeof(char)*10);
     aux=itoa(res,aux,10);
 	apilar(pila,aux);
+
 
 }
 
@@ -104,7 +112,7 @@ int insertarEnPila(pila_t* pila,char cad[],int l){
 
 				if ((*(s)=='(') || (esOperador((s))==1)){
                     char ax[1];
-                    ax[0]=*s;
+                    (ax)[0]=*s;
 					apilar(pila,ax);
 					s++;
 					i++;
@@ -113,7 +121,7 @@ int insertarEnPila(pila_t* pila,char cad[],int l){
 					char* aux;
 					aux=(char*) malloc(10*sizeof(char));
 					char* x=aux;
-					for (;(*(s)!=' ') && (*(s)!='\0') && (*(s)!=')') ;s++,x++,i++){
+					for (;(*(s)!=' ') && (*(s)!='\0') && (*(s)!=')') && (*(s)!='(')  ;s++,x++,i++){
                         *x=*s;
                     }
 

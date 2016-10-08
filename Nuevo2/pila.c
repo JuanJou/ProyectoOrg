@@ -43,7 +43,10 @@ int apilar(pila_t* pila, char* str){
     pila_t pilaNueva=(pila_t) malloc(sizeof(pila_t));
 
     char* cadena=(char*) malloc(10*sizeof(char));
-    cadena=str;
+    int i=0;
+
+    for (;i<strlen(str);i++)
+        *(cadena+i)=*(str+i);
 
     if ((*pila)!=0){
         pilaNueva->elemento= (*pila)->elemento;
