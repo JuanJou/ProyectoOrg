@@ -57,9 +57,11 @@ int main(int argc,char const *argv[])
 
     int x=insertarEnPila(&p,exp,longitud);
 
+    char* d;
    while(pila_vacia(p)==0){
-        char* d=desapilar(&p);
+        d=desapilar(&p);
         printf("%s\n",d);
+
    }
   // while (pila_vacia(p)!=0){
     // printf("%s\n",desapilar(&p));

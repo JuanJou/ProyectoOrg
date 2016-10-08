@@ -18,14 +18,14 @@ char* tope(pila_t pila){
 char* desapilar(pila_t* pila){
 
 
-   if((*pila)!=0){
+   if((*pila)!=NULL){
         char* elem=(*pila)->elemento;
-            if(((*pila)->proximo_elemento)!=0){
+            if(((*pila)->proximo_elemento)!=NULL){
                  pila_t aux=(*pila)->proximo_elemento;
                 (*pila)=aux;
             }
             else{
-                (*pila)=0;
+                (*pila)=NULL;
             }
        // free(elem);
         return elem;

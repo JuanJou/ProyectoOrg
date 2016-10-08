@@ -5,8 +5,8 @@
 #include "pila.h"
 #include <string.h>
 
-int esOperador(char x){
-    if ((x=='+') || (x=='*') || (x=='-') || (x=='/'))
+int esOperador(char* x){
+    if (((*x)=='+') || ((*x)=='*') || ((*x)=='-') || ((*x)=='/'))
         return 1;
     else
         return 0;
@@ -51,7 +51,7 @@ double resta(lista_t operandos){
 int calcularPila(pila_t* pila){
 	int i;
 	lista_t lista=lista_crear();
-	for (i=0;esOperador(tope(*pila));i++){
+	for (i=0;esOperador(tope(*pila))==0;i++){
 		lista_adjuntar(lista,atoi(desapilar(pila)));
 	}
 	char* op=desapilar(pila);
@@ -62,16 +62,16 @@ int calcularPila(pila_t* pila){
 
 	int res=0;
 
-	if (op=="+")
+	if (*op=='+')
         res=suma(lista);
     else
-        if (op=="-")
+        if (*op=='-')
             res=resta(lista);
         else
-            if (op=="*")
+            if (*op=='*')
                 res=mult(lista);
             else
-                if (op=="/")
+                if (*op=='/')
                     res=division(lista);
                 else
                     exit(OPRD_INV);
@@ -91,16 +91,23 @@ int insertarEnPila(pila_t* pila,char cad[],int l){
 	while(i<l){
 		if (*(s)!=' '){
 			if ((*(s))==')'){
-				char a=*s;
-				apilar(pila,&a);
+                calcularPila(pila);
+				/*char a[1];
+				a[0]=*s;
+				apilar(pila,a);*/
+				s++;
+				i++;
 				}
 			else
 			{
 				//for (;*s==' ';s++)
 
-				if ((*(s)=='(') || (esOperador((*s))==1)){
-                    char ax=*s;
-					apilar(pila,&ax);
+				if ((*(s)=='(') || (esOperador((s))==1)){
+                    char ax[1];
+                    ax[0]=*s;
+					apilar(pila,ax);
+					s++;
+					i++;
 					}
 				else{
 					char* aux;
@@ -116,7 +123,10 @@ int insertarEnPila(pila_t* pila,char cad[],int l){
 				 }
 			}
 		}
-	i++;
+	if (*s==' ')
+    {s++;
+     i++;
+     }
   }
 }
 
