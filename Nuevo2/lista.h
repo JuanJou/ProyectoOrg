@@ -1,6 +1,15 @@
 
 #ifndef LISTA_H_INCLUDED
 #define LISTA_H_INCLUDED
+
+
+#define EXITO EXIT_SUCCESS
+#define LST_NO_INI 3
+#define LST_POS_INV 4
+
+
+
+
 typedef struct celda{
     int elementos[4];
     struct celda* proxima_celda;

@@ -18,3 +18,35 @@
 
 1475708963 c:\users\personal\desktop\universidad\organizacion\nuevo2\pila.h
 
+1475870874 source:c:\users\juan\desktop\organizacion de computadoras\proyectoorg\nuevo2\lista.c
+	"lista.h"
+	<stdlib.h>
+
+1475869642 c:\users\juan\desktop\organizacion de computadoras\proyectoorg\nuevo2\lista.h
+
+1475883035 source:c:\users\juan\desktop\organizacion de computadoras\proyectoorg\nuevo2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"pila.h"
+	"evaluar.h"
+
+1475868977 c:\users\juan\desktop\organizacion de computadoras\proyectoorg\nuevo2\pila.h
+
+1475880519 source:c:\users\juan\desktop\organizacion de computadoras\proyectoorg\nuevo2\pila.c
+	"pila.h"
+	<stdlib.h>
+	<string.h>
+
+1475878946 c:\users\juan\desktop\organizacion de computadoras\proyectoorg\nuevo2\evaluar.h
+	"pila.h"
+	"lista.h"
+
+1475883035 source:c:\users\juan\desktop\organizacion de computadoras\proyectoorg\nuevo2\evaluar.c
+	"evaluar.h"
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+	"pila.h"
+	<string.h>
+

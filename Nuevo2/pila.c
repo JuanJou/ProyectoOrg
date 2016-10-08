@@ -12,15 +12,18 @@ char* tope(pila_t pila){
     if(pila!=0)
         return pila->elemento;
     else
-        return "hola";
+        exit(PILA_VACIA);
 }
 
 char* desapilar(pila_t* pila){
 
+
    if((*pila)!=0){
         char* elem=(*pila)->elemento;
             if(((*pila)->proximo_elemento)!=0){
-                (*pila)=(*pila)->proximo_elemento;
+                pila_t aux=(*pila)->proximo_elemento;
+                free(*pila);
+                (*pila)=aux;
             }
             else{
                 (*pila)=0;
@@ -28,10 +31,16 @@ char* desapilar(pila_t* pila){
         free(elem);
         return elem;
     }
-    return "kj";
+    else
+        exit(PILA_VACIA);
 }
 
 int apilar(pila_t* pila, char* str){
+
+    if (pila==0){
+        exit(PILA_NO_INI);
+    }
+
     pila_t pilaNueva=(pila_t) malloc(sizeof(pila_t));
 
     char* cadena=(char*) malloc(10*sizeof(char));
@@ -45,14 +54,14 @@ int apilar(pila_t* pila, char* str){
    }
    else {
         (*pila)=(pila_t) malloc(sizeof(pila_t));
-        strcpy((*pila)->elemento,cadena);
+        (*pila)->elemento=cadena;
         (*pila)->proximo_elemento=0;
    }
    return 0;
 }
 
 int pila_vacia(pila_t pila){
-    if(pila==0)
+    if(pila==NULL)
         return 1;
     else
         return 0;

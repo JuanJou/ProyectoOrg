@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="evaluar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="evaluar.h" />
 		<Unit filename="lista.c">
 			<Option compilerVar="CC" />
 		</Unit>

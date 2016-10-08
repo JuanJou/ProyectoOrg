@@ -12,40 +12,61 @@ lista_t lista_crear(){
 int lista_insertar(lista_t lista, unsigned int pos, int elem){
     celda_t* c=lista->primera_celda;
     int i;
+  if (lista!=NULL){  
     if (pos==lista->cantidad_elementos){
         lista_adjuntar(lista,elem);
+        return 1;
+        }
+        else{
+          for (i=0;i<pos/4;i++){
+            c=c->proxima_celda;
+            }
+            c->elementos[pos%4]=elem;
+            lista->cantidad_elementos++;
+            return 1;
+        }
     }
-    else{
-    for (i=0;i<pos/4;i++){
-        c=c->proxima_celda;
-    }
-        c->elementos[pos%4]=elem;
-        lista->cantidad_elementos++;
-    }
+  return 0;      
 }
 
 int lista_eliminar(lista_t lista, unsigned int pos){
     int i=0;
-    celda_t* c=lista->primera_celda;
-    for (i=0;i<(int)pos/4;i++){
-        c=c->proxima_celda;
-    }
-    int correr=pos%4+i*4;
 
-    for (;correr<(lista->cantidad_elementos);correr++){
-        if (correr%4==0){
-            c=c->proxima_celda;
+    if (pos>lista->cantidad_elementos)
+        exit(LST_POS_INV);
+
+    if (lista!=NULL){
+        celda_t* c=lista->primera_celda;
+        for (i=0;i<(int)pos/4;i++){
+             c=c->proxima_celda;
         }
-        c->elementos[correr%4]=siguiente_elemento(correr,c);
-   }
+        int correr=pos%4+i*4;
+
+        for (;correr<(lista->cantidad_elementos);correr++){
+            if (correr%4==0){
+                c=c->proxima_celda;
+            }
+            c->elementos[correr%4]=siguiente_elemento(correr,c);
+         }
+        lista->cantidad_elementos--;
+
+    }
 }
 
 int lista_cantidad(lista_t lista){
+    if (lista==NULL)
+        exit(LST_NO_INI);
+
     return lista->cantidad_elementos;
 }
 
 int lista_obtener(lista_t lista, unsigned pos){
+    if (pos>lista->cantidad_elementos){
+        exit(LST_POS_INV);
+    }
+
     int i=0;
+
     celda_t* c=lista->primera_celda;
     for (i=0;i<(int)pos/4;i++){
         c=c->proxima_celda;
@@ -54,6 +75,10 @@ int lista_obtener(lista_t lista, unsigned pos){
 }
 
 int lista_adjuntar(lista_t lista, int elem){
+
+    if (lista==NULL)
+        exit(LST_NO_INI);
+
     celda_t* c=lista->primera_celda;
     int i;
     for (i=0;i<lista->cantidad_elementos/4;i++){
@@ -65,8 +90,11 @@ int lista_adjuntar(lista_t lista, int elem){
 }
 
 int lista_destruir(lista_t* lista){
+    if (*lista==NULL)
+        exit(LST_NO_INI);
+
     free(lista);
-    lista=0;
+    lista=NULL;
 }
 
 int siguiente_elemento(int i,celda_t* c){
