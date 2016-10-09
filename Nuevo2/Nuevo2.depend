@@ -50,7 +50,7 @@
 	"pila.h"
 	<string.h>
 
-1475903639 source:c:\users\personal\desktop\universidad\organizacion\proyectoorg\nuevo2\evaluar.c
+1475984459 source:c:\users\personal\desktop\universidad\organizacion\proyectoorg\nuevo2\evaluar.c
 	"evaluar.h"
 	<stdio.h>
 	<stdlib.h>
@@ -70,17 +70,18 @@
 	"lista.h"
 	<stdlib.h>
 
-1475901330 source:c:\users\personal\desktop\universidad\organizacion\proyectoorg\nuevo2\pila.c
+1475982553 source:c:\users\personal\desktop\universidad\organizacion\proyectoorg\nuevo2\pila.c
 	"pila.h"
 	<stdlib.h>
 	<string.h>
 
-1475901952 source:c:\users\personal\desktop\universidad\organizacion\proyectoorg\nuevo2\main.c
+1475984085 source:c:\users\personal\desktop\universidad\organizacion\proyectoorg\nuevo2\main.c
 	<stdio.h>
 	<stdlib.h>
 	"lista.h"
 	"pila.h"
 	"evaluar.h"
+	<string.h>
 
 1475940701 source:c:\users\agustin\desktop\proyectoorg\nuevo2\lista.c
 	"lista.h"

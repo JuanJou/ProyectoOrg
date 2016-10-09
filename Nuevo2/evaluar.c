@@ -5,6 +5,9 @@
 #include "pila.h"
 #include <string.h>
 
+/** \brief Descripcion del metodo
+    Chequea si el puntero a caracter esta apuntando a un operador(+, -, *, /)
+*/
 int esOperador(char* x){
     if (((*x)=='+') || ((*x)=='*') || ((*x)=='-') || ((*x)=='/'))
         return 1;
@@ -12,7 +15,9 @@ int esOperador(char* x){
         return 0;
 }
 
-
+/*
+    Recibe una lista como parametro y calcula la suma de todos los elementos que se encuentra en la misma
+*/
 double suma(lista_t operandos){
     double suma=0;
     int i=0;
@@ -20,7 +25,9 @@ double suma(lista_t operandos){
         suma+=lista_obtener(operandos,i);
     return suma;
 }
-
+/*
+    Recibe una lista como parametro y calcula la multiplicacion de todos los elementos que se encuentran en la misma
+*/
 double mult(lista_t operandos){
     double mult=1;
     int i=0;
@@ -29,7 +36,9 @@ double mult(lista_t operandos){
     return mult;
 
 }
-
+/*
+    Recibe una lista como parametro y calcula la division de los dos elementos que se encuentran en la misma
+*/
 double division(lista_t operandos){
     if (operandos->cantidad_elementos>2){
         printf("DEMASIADOS OPERANDOS");
@@ -39,7 +48,9 @@ double division(lista_t operandos){
     return (lista_obtener(operandos,1)/lista_obtener(operandos,0));
 
 }
-
+/*
+    Recibe una lista como parametro y calcula la resta de los dos elementos que se encuentra en la misma
+*/
 double resta(lista_t operandos){
     if (operandos->cantidad_elementos!=2){
         printf("DEMASIADOS OPERANDOS");
@@ -51,7 +62,10 @@ double resta(lista_t operandos){
 
 }
 
-
+/*
+Recibe una pila como parametro y calcula la primer operacion simple que se encuentra almacenada en la misma,
+simple se refiere a que tiene dos operadores concretos (+5 6) y no (*(+4 6) 3)
+*/
 int calcularPila(pila_t* pila){
 	int i;
 	lista_t lista=lista_crear();
@@ -92,7 +106,9 @@ int calcularPila(pila_t* pila){
 }
 
 
-
+/*
+    Recibe una cadena por parametro y calcula el resultado de la operacion representada
+*/
 int insertarEnPila(pila_t* pila,char cad[],int l){
     int i=0;
     char* s=cad;
@@ -100,16 +116,11 @@ int insertarEnPila(pila_t* pila,char cad[],int l){
 		if (*(s)!=' '){
 			if ((*(s))==')'){
                 calcularPila(pila);
-				/*char a[1];
-				a[0]=*s;
-				apilar(pila,a);*/
 				s++;
 				i++;
 				}
 			else
 			{
-				//for (;*s==' ';s++)
-
 				if ((*(s)=='(') || (esOperador((s))==1)){
                     char ax[1];
                     (ax)[0]=*s;
@@ -126,8 +137,8 @@ int insertarEnPila(pila_t* pila,char cad[],int l){
                     }
 
 					apilar(pila,aux);
-					//free(aux);
-					//aux=NULL;
+					free(aux);
+					aux=NULL;
 				 }
 			}
 		}
@@ -138,17 +149,33 @@ int insertarEnPila(pila_t* pila,char cad[],int l){
   }
 }
 
-/*int calcularPila(pila_t* p,char* exp){
+
+int main(int argc,char const *argv[])
+{
+   pila_t p=pila_crear();
+
+
+    char* exp=(char*)malloc(100*sizeof(char));
+    printf("Ingrese una expresion: ");
+    scanf("%[^\n]",exp);
+    int longitud=strlen(exp);
+
+    insertarEnPila(&p,exp,longitud);
+
+    char* d;
+    while(pila_vacia(p)==0){
+        d=desapilar(&p);
+    }
+    char aux[strlen(d)];
+    int j=0;
+    while (j<strlen(aux)){
+        aux[j]=*(d++);
+        j++;
+    }
     int i=0;
-    while (*(exp+i)!='\0'){
-        apilar(p,*(exp+i));
-        i++;
-        }
+    printf("Resultado: %s",aux);
 
-
-}*/
-
-
+}
 
 
 
