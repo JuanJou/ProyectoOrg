@@ -39,9 +39,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="lista.h" />
-		<Unit filename="main.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="pila.c">
 			<Option compilerVar="CC" />
 		</Unit>

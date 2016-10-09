@@ -2,19 +2,28 @@
 #include <stdlib.h>
 #include <string.h>
 
-
+/*
+Crea una pila vacia
+*/
 pila_t pila_crear(){
-    pila_t pila=0;
+    pila_t pila=NULL;
     return pila;
 }
 
+
+/*
+Devuelve el elemento almacenado en el tope de la pila
+
+*/
 char* tope(pila_t pila){
     if(pila!=0)
         return pila->elemento;
     else
         exit(PILA_VACIA);
 }
-
+/*
+Devuelve el elemento almacenado en el tope de la pila y lo elimina, siendo el siguiente el nuevo tope
+*/
 char* desapilar(pila_t* pila){
 
 
@@ -34,6 +43,9 @@ char* desapilar(pila_t* pila){
         exit(PILA_VACIA);
 }
 
+/*
+Almacena un elemento en el tope de la pila
+*/
 int apilar(pila_t* pila, char* str){
 
     if (pila==0){
@@ -61,7 +73,9 @@ int apilar(pila_t* pila, char* str){
    }
    return 0;
 }
-
+/*
+Chequea si la pila pasada por parametro esta vacia
+*/
 int pila_vacia(pila_t pila){
     if(pila==NULL)
         return 1;

@@ -3,68 +3,38 @@
 #include "lista.h"
 #include "pila.h"
 #include "evaluar.h"
+#include <string.h>
 
 
 
 
 int main(int argc,char const *argv[])
 {
-    //Probando Pila, ANDA
-    //if (argc>1)
-    //    exit(5);
-
-
-
-
    pila_t p=pila_crear();
 
-    /*apilar(&p,"carlos");
-    apilar(&p,"pepe");
-    apilar(&p,"hola");
 
-    printf("%s\n",desapilar(&p));
-    printf("%s\n",desapilar(&p));
-    printf("%s",desapilar(&p));
-
-
-   /* //Probando Lista, ANDA
-    int x=1;
-    char* g;
-
-    printf("%s",g);
-
-
-    lista_t l=NULL;
-
-
-    int i;
-   // for (i=0;i<4;i++)
-     //   lista_adjuntar(l,i);
-
-   for (i=0;i<lista_cantidad(l);i++)
-        printf("%i\n",lista_obtener(l,i));*/
-
-
-   char* exp=(char*)malloc(100*sizeof(char));
-   //char exp[10];
+    char* exp=(char*)malloc(100*sizeof(char));
     printf("Ingrese una expresion: ");
     scanf("%[^\n]",exp);
-    //printf("%s",exp);
-    //printf("%c",*(exp+1));
-
-    //printf("hola");
     int longitud=strlen(exp);
 
-    int x=insertarEnPila(&p,exp,longitud);
+    insertarEnPila(&p,exp,longitud);
 
     char* d;
-   while(pila_vacia(p)==0){
+    while(pila_vacia(p)==0){
         d=desapilar(&p);
-        printf("%s\n",d);
-
-   }
-  // while (pila_vacia(p)!=0){
-    // printf("%s\n",desapilar(&p));
-  //}
+    }
+    char aux[2];
+    int j=0;
+    while (j<2){
+        aux[j]=*(d++);
+        j++;
+    }
+    int i=0;
+    printf("Resultado: %s",aux);
+    /*while (i<strlen(aux)){
+        printf("%c",aux[i]);
+        i++;
+        }*/
 
 }
