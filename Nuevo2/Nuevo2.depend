@@ -82,13 +82,13 @@
 	"pila.h"
 	"evaluar.h"
 
-1475940701 source:c:\users\agustin\desktop\proyectoorg\nuevo2\lista.c
+1476029600 source:c:\users\agustin\desktop\proyectoorg\nuevo2\lista.c
 	"lista.h"
 	<stdlib.h>
 
 1475940701 c:\users\agustin\desktop\proyectoorg\nuevo2\lista.h
 
-1475960774 source:c:\users\agustin\desktop\proyectoorg\nuevo2\evaluar.c
+1476029353 source:c:\users\agustin\desktop\proyectoorg\nuevo2\evaluar.c
 	"evaluar.h"
 	<stdio.h>
 	<stdlib.h>

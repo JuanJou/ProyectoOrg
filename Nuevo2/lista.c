@@ -12,7 +12,7 @@ lista_t lista_crear(){
 int lista_insertar(lista_t lista, unsigned int pos, int elem){
     celda_t* c=lista->primera_celda;
     int i;
-  if (lista!=NULL){  
+  if (lista!=NULL){
     if (pos==lista->cantidad_elementos){
         lista_adjuntar(lista,elem);
         return 1;
@@ -26,7 +26,7 @@ int lista_insertar(lista_t lista, unsigned int pos, int elem){
             return 1;
         }
     }
-  return 0;      
+  return 0;
 }
 
 int lista_eliminar(lista_t lista, unsigned int pos){
